@@ -1,6 +1,5 @@
 package G53SQM.Coursework2;
 
-
 import java.io.File;
 import java.io.IOException;
 
@@ -24,20 +23,21 @@ $Id: WebServerMain.java,v 1.2 2004/02/01 13:37:35 pjm2 Exp $
  */
 public class WebServerMain {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
     	SLF4J logger =  new SLF4J();
+    	
     	
     	
     	 try
          {
              
-             File myFile = new File("C:/./../workspace/sqmm/webfiles");
+             File myFile = new File("C:/./../workspace/sqm.cw2/webfiles");
              String path = myFile.getCanonicalPath();
 
              // If the file exists, display it's full path.
              
              {
-            	 System.out.println("Jibble web server (modified by Richard Lau Heng Wei 010664 for G53SQM)");
+            	 System.out.println("Jibble web server (modified by Richard Lau Heng Wei for G53SQM)");
                  System.out.println("root directory " + path);
                  System.out.println("port:8088");
                  
@@ -50,6 +50,9 @@ public class WebServerMain {
          {
              System.out.println(ex.toString());
          }
+    	 
+    	 WebProperty properties = new WebProperty();
+ 		properties.getPropValues();
         
         String rootDir = WebServerConfig.DEFAULT_ROOT_DIRECTORY;
         int port = WebServerConfig.DEFAULT_PORT;
