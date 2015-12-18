@@ -1,19 +1,19 @@
 package G53SQM.Coursework2;
 
+
+import java.io.File;
+import java.io.IOException;
+
 /* 
 Copyright Paul James Mutton, 2001-2004, http://www.jibble.org/
-
 This file is part of Jibble Web Server / WebServerLite.
-
 This software is dual-licensed, allowing you to choose between the GNU
 General Public License (GPL) and the www.jibble.org Commercial License.
 Since the GPL may be too restrictive for use in a proprietary application,
 a commercial license is also provided. Full license information can be
 found at http://www.jibble.org/licenses/
-
 $Author: pjm2 $
 $Id: WebServerMain.java,v 1.2 2004/02/01 13:37:35 pjm2 Exp $
-
 */
 
 
@@ -25,6 +25,31 @@ $Id: WebServerMain.java,v 1.2 2004/02/01 13:37:35 pjm2 Exp $
 public class WebServerMain {
 
     public static void main(String[] args) {
+    	SLF4J logger =  new SLF4J();
+    	
+    	
+    	 try
+         {
+             
+             File myFile = new File("C:/./../workspace/sqmm/webfiles");
+             String path = myFile.getCanonicalPath();
+
+             // If the file exists, display it's full path.
+             
+             {
+            	 System.out.println("Jibble web server (modified by Richard Lau Heng Wei for G53SQM)");
+                 System.out.println("root directory " + path);
+                 System.out.println("port:8088");
+                 
+                 
+             }
+             logger.info("Log information");
+         }
+    	 
+         catch (IOException ex)
+         {
+             System.out.println(ex.toString());
+         }
         
         String rootDir = WebServerConfig.DEFAULT_ROOT_DIRECTORY;
         int port = WebServerConfig.DEFAULT_PORT;
